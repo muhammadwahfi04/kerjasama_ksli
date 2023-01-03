@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ks_instansis', function (Blueprint $table) {
-            $table->id('ksId');
+            $table->integer('ksId', 10);
             $table->string('ksJenis');
             $table->string('ksInstansi');
             $table->text('ksNama');
             $table->string('ksKota', 50);
             $table->string('ksNegara', 50);
+            $table->string('ksBenua', 50);
             $table->string('ksNoKS', 50);
             $table->date('ksTglKontrak');
             $table->date('ksTglAkhir');
@@ -29,6 +30,8 @@ return new class extends Migration
             $table->string('ksFile', 100);
             $table->timestamps(); 
         });
+
+        Schema::rename('ks_instansis', 'tbkerjasamas');
     }
 
     /**
